@@ -8,7 +8,7 @@ function createCard(phone) {
                 <h5 class="card-title">${phone.name}</h5>
                 <p class="card-text">${phone.description}</p>
                 <p class="card-text">${phone.price}</p>
-                <a href="#" class="btn btn-primary">Batafsil</a>
+                <a href="#" class="btn btn-primary more-info" id = "element_${phone.id}">Batafsil</a>
             </div>
         </div>
 
@@ -24,11 +24,21 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.length) {
             data.forEach(phone => {
                 let card = createCard(phone);
+                console.log(card);
                 wrapper.innerHTML += card;
             });
+            let moreButtons = document.querySelectorAll('a.more-info')
+            moreButtons.length && moreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    let elId = this.getAttribute('id').substring(8);
+                    if (elId) {
+                        window.location.assign(`file:///D:/najottalim/js/js%20%205-oy/9-dars/pages/item.html?id=${elId}`)
+                    }     
+                })
+            })
         }
     })
     .catch(err => { 
         console.log(err);
-    })
+    });
 });
