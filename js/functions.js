@@ -14,3 +14,5 @@ function createRowTable(phone,index) {
         </tr>
     `
 }
+
+export{createRowTable}
