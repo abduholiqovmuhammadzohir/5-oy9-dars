@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function () {
         fetch(`https://auth-rg69.onrender.com/api/products/${elId}`)
             .then(res => res.json())
             .then(data => {
-                let block = createHtml('data')
+                let block = createHtml(data)
                 wrapper.innerHTML = block
             })
     } else {
-        window.location.assign('file:///D:/najottalim/js/js%20%205-oy/9-dars/index.html');
+        window.location.assign('http://127.0.0.1:5500/index.html');
     }
 })
